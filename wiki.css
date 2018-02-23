@@ -1,3 +1,54 @@
 body {
-  
+  background-color: #141414;
+}
+
+#heading {
+  color: #ce7d04;
+  font-weight: bold;
+  margin: 50px 0 100px 0;
+}
+
+#random, #dropSearch {
+  color: #995D1A;
+  display: inline-block;
+  margin: 30px 10px;
+  background-color: #222625;
+}
+
+#random:hover, #dropSearch:hover {
+  border: 1px solid white;
+}
+
+form {
+  display: block;
+}
+
+#search-box {
+  margin-bottom: 50px;
+}
+
+#search {
+  width: 50%;
+  background-color: inherit;
+  border: none;
+  border-bottom: 1px solid #995D1A;
+  color: #995D1A;
+}
+
+#search:focus, #search:active {
+  border: none;
+}
+
+.result {
+  margin: 0 0 30px 10%;
+  padding: 10px;
+  width: 80%;
+  background-color: #706d6a;
+  border-left: 5px solid #995D1A;
+  display: none;
+}
+
+.result a {
+  color: black;
+  font-weight: bold;
 }

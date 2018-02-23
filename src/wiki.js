@@ -101,8 +101,10 @@ $(document).ready(function () {
       extract = pages[i].extract;
       target = "#result_" + i;
       $(target).html("<a href='" + url + "'>" + title + "</a><br><p>" + extract + "</p>");
+      $(target).addClass("animated fadeInRight");
+      $(target).css("display", "block");
     }
   };
 
-  
+
 });

@@ -6,18 +6,25 @@
   <title>Wikipedia Viewer</title>
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
   <link rel="stylesheet" href="wiki.css">
+  <link rel='stylesheet' href='animate.css'>
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="src/wiki.js"></script>
 </head>
 
 <body>
-  <h1 class="text-center">Wikipedia Viewer</h1>
-  <a class="text-center" id="random" href="#">Click here to view a random article</a>
-  <form class="text-center">
-    <input type="search" name="wikisearch" placeholder="Search..." id="search">
-  </form>
-  <p class="text-center">Click icon to search</p>
+  <h1 class="text-center" id="heading">Wikipedia Viewer</h1>
+  <div class="text-center">
+    <button class="btn" id="random">Click here to view a random article</button>
+    <button class="btn" id="dropSearch" data-toggle="collapse" data-target="#search-box">Click here to search Wikipedia</button>
+  </div>
+  <div class="text-center collapse" id="search-box">
+    <form class="text-center">
+      <input type="search" name="wikisearch" placeholder="Search..." id="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
   <div class="result" id="result_0">
   </div>
   <div class="result" id="result_1">
