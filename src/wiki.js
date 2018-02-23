@@ -45,10 +45,11 @@ $(document).ready(function () {
   //prevents page from reloading on form submit and pulls input for wikipedia search
   $('form').submit(function(e){
     e.preventDefault();
+    $(".result").addClass("hidden");
     let term = $("#search").val();
     term = term.toLowerCase().replace(/\s+/g, "%20");
     const wikiUrl =`https://en.wikipedia.org/w/api.php?action=query&format=json&prop=info%7Cextracts&generator=search&inprop=url&exchars=200&exlimit=10&exintro=1&gsrsearch=${term}&gsrnamespace=0&gsrlimit=10`;
-    //request to wikipedia API, jsonp is necessary due to CORS access-control-allow-origin header not being present
+    //request to wikimedia API, jsonp is necessary due to CORS access-control-allow-origin header not being present
     $.ajax({
       url: wikiUrl,
       type: 'GET',
@@ -58,11 +59,6 @@ $(document).ready(function () {
         const pages = response.query.pages;
         const pageArray = indexSort(pages, idArray);
         pageInfoDisplay(pageArray);
-        /*const url = pageArray[0].fullurl;
-        const title = pageArray[0].title;
-        const extract = pageArray[0].extract;
-        const target = "#result_1";
-        $(target).html("<a href='" + url + "'>" + title + "</a><br><p>" + extract + "</p>");*/
         console.log(response);
       },
       error (jqXHR, status, errorThrown) {
@@ -89,7 +85,8 @@ $(document).ready(function () {
   };
 
   /*This function iterates through the previously created sorted array of pages
-  and generates a list of search results from them*/
+  and generates a list of search results from them.
+  Also: a cool staggered fade-in slide animation!!*/
   const pageInfoDisplay = (pages) => {
     let url = "";
     let title = "";
@@ -100,9 +97,10 @@ $(document).ready(function () {
       title = pages[i].title;
       extract = pages[i].extract;
       target = "#result_" + i;
+      let delay = i * 100;
       $(target).html("<a href='" + url + "'>" + title + "</a><br><p>" + extract + "</p>");
       $(target).addClass("animated fadeInRight");
-      $(target).css("display", "block");
+      $(target).removeClass("hidden").css("animation-delay", delay + "ms");
     }
   };
 
