@@ -47,11 +47,21 @@ form {
   border-left: 5px solid #995D1A;
 }
 
+.result:hover {
+  text-decoration: underline;
+  cursor: hand;
+  cursor: pointer;
+}
+
 .hidden {
   display: none;
 }
 
-.result a {
+a {
   color: black;
   font-weight: bold;
+}
+
+a:hover {
+  color: black;
 }

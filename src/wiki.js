@@ -98,9 +98,13 @@ $(document).ready(function () {
       extract = pages[i].extract;
       target = "#result_" + i;
       let delay = i * 100;
-      $(target).html("<a href='" + url + "'>" + title + "</a><br><p>" + extract + "</p>");
+      $(target).html("<a href='" + url + "'><h4>" + title + "</h4></a><br><p>" + extract + "</p>");
       $(target).addClass("animated fadeInRight");
       $(target).removeClass("hidden").css("animation-delay", delay + "ms");
+      $(target).click(function() {
+  window.location = $(this).find("a").attr("href");
+  return false;
+});
     }
   };
 
